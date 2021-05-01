@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewAcitvarCuenta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activarCuenta.ActivarCuentaActivity">
+
+    <EditText
+        android:id="@+id/editextCodigoActivacion"
+        android:layout_width="197dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/personalizado_edittext_background"
+        android:ems="10"
+        android:hint="Codigo de Activación"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailActivacion" />
+
+    <Button
+        android:id="@+id/botonActivarCuenta"
+        android:layout_width="209dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="284dp"
+        android:background="@drawable/personalizado_boton_login"
+        android:gravity="center"
+        android:text="Activar"
+        android:textColor="#FBF9F9"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editextCodigoActivacion"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="401dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Te hemos mantado  código de activación  en siguente email"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarActivarCuenta" />
+
+    <TextView
+        android:id="@+id/textEmailActivacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textColor="#1305E6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textTiempoActivaCuenta"
+        android:layout_width="31dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:text="60"
+        android:textColor="#F10D0D"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonActivarCuenta"
+        app:layout_constraintStart_toEndOf="@+id/editextCodigoActivacion"
+        app:layout_constraintTop_toTopOf="@+id/editextCodigoActivacion"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <Button
+        android:id="@+id/vuelveMandarEmail"
+        android:layout_width="88dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0.3"
+        android:enabled="false"
+        android:text="Vueleve a Mandar"
+        android:textColor="#151414"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonActivarCuenta"
+        app:layout_constraintStart_toEndOf="@+id/textTiempoActivaCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailActivacion"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/progressBarActivarCuenta"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

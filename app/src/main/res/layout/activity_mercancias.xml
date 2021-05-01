@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+            <variable
+                name="data"
+                type="com.example.queue.listaproducto.interfaz.mercancias.ViewModelMercancias" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".listaproducto.interfaz.mercancias.MercanciasActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/boder"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="1dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/mercanciaNombre"
+                android:layout_width="111dp"
+                android:layout_height="41dp"
+                android:gravity="center"
+                android:text="@{data.getNombre()}"
+                android:textColor="#070707"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="51dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="127dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/boder"
+                    android:gravity="center"
+                    android:text="Precio" />
+
+                <TextView
+                    android:id="@+id/mercanciaPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@{String.valueOf(data.getPrecio())}"
+                    android:background="@drawable/boder"
+                    android:gravity="center"
+              />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boder">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="127dp"
+                    android:layout_height="73dp"
+                    android:background="@drawable/boder"
+                    android:gravity="center"
+                    android:text="Cantidad" />
+
+                <LinearLayout
+                    android:layout_width="262dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/mercanciaMas"
+                        android:layout_width="124dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="@{()->data.setCantidad(+1)}"
+                        android:text="+"
+                        android:textSize="40dp" />
+
+                    <TextView
+                        android:id="@+id/mercanciaCantidad"
+                        android:layout_width="96dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(data.getCantidad())}"
+                        android:textColor="#EF0606"
+                        android:textSize="30dp" />
+
+                    <Button
+                        android:id="@+id/mercanciaMenos"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="@{()->data.setCantidad(-1)}"
+                        android:text="-"
+                        android:textSize="40dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="63dp">
+
+                <TextView
+                    android:id="@+id/textViewstocket"
+                    android:layout_width="127dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/boder"
+                    android:gravity="center"
+                    android:text="Precio" />
+
+                <TextView
+                    android:id="@+id/mercanciaStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder"
+                    android:text="@{String.valueOf(data.getStock())}"
+                    android:gravity="center"
+      />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/mercanciaFoto"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boder"
+                app:srcCompat="@drawable/no_hay_wifi" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="196dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="176dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder"
+                    android:gravity="center"
+                    android:text="Descripcion" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder">
+
+                    <TextView
+                        android:id="@+id/mercanciaDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{data.getDescripcion()}" />
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

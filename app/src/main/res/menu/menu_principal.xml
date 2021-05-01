@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_micola"
+        android:icon="@drawable/icono_micola"
+        android:title="@string/miCola" />
+
+
+    <item
+        android:id="@+id/menu_incorporar"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/incorporar" />
+    <item
+        android:id="@+id/menu_micuenta"
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:title="Mi Cuenta" />7
+
+
+</menu>

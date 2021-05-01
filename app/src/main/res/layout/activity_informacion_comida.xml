@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.queue.listaproducto.interfaz.comida.ViewModelComida"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".listaproducto.interfaz.comida.InformacionComidaActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/lista_comida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/boder"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="1dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/comidaNombre"
+                    android:layout_width="111dp"
+                    android:layout_height="41dp"
+                    android:gravity="center"
+                    android:text="@{data.getNombre()}"
+                    android:textColor="#070707"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="127dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:text="Precio" />
+
+                    <TextView
+                        android:id="@+id/comidaPrecio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(data.getPrecio())}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="411dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boder">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="127dp"
+                        android:layout_height="73dp"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:text="Cantidad" />
+
+                    <LinearLayout
+                        android:layout_width="262dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/comidaMas"
+                            android:layout_width="124dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="+"
+                            android:onClick="@{()->data.setCantidad(+1)}"
+                            android:textSize="40dp" />
+
+                        <TextView
+                            android:id="@+id/comidaCantidad"
+                            android:layout_width="96dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/boder"
+                            android:gravity="center"
+                            android:text="@{String.valueOf(data.getCantidad())}"
+                            android:textColor="#EF0606"
+                            android:textSize="30dp" />
+
+                        <Button
+                            android:id="@+id/comidaMenos"
+                            android:layout_width="114dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="-"
+                            android:onClick="@{()->data.setCantidad(-1)}"
+                            android:textSize="40dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageComida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boder"
+                    app:srcCompat="@drawable/no_hay_wifi" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="176dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:text="Ingrediente" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/comidaIngrediente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@{data.getIngrediente()}" />
+                    </ScrollView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

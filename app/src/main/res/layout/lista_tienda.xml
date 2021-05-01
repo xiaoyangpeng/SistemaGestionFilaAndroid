@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/elemento"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp"
+    android:paddingLeft="1dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder"
+        tools:layout_conversion_absoluteHeight="151dp"
+        tools:layout_conversion_absoluteWidth="410dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="5dp">
+
+
+        <TableRow
+            android:layout_width="364dp"
+            android:layout_height="77dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/nomreTienda"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="404dp"
+            android:layout_height="52dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:background="@drawable/boder"
+                android:gravity="center"
+                android:text="Calle"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/calleTienda"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/boder"
+                android:gravity="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="67dp"
+                android:layout_height="50dp"
+                android:background="@drawable/boder"
+                android:gravity="center"
+                android:text="Categoria"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/categoriaTienda"
+                android:layout_width="282dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/boder"
+                android:gravity="center" />
+        </TableRow>
+
+
+    </TableLayout>
+</LinearLayout>

@@ -25,14 +25,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".informaciontienda.InformacionTiendaActivity">
+        <activity android:name=".incorporarremota.InformacionTiendaActivity">
 
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".fragments.incorporar.incorporarRemota.RemotaActivity"></activity>
         <activity android:name=".listaproducto.interfaz.servicio.ServicioActivity" />
@@ -42,6 +38,11 @@
         <activity android:name=".listaproducto.interfaz.comida.InformacionComidaActivity" />
         <activity android:name=".listaproducto.interfaz.Listaproducto" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity
@@ -64,7 +65,12 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".login.LoginActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden">
+
+
+
+
+        </activity>
     </application>
 
 </manifest>

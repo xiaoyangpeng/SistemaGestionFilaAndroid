@@ -16,7 +16,7 @@ public class GuardarDatoAcceso {
         this.activity=activity;
     }
 
-    public void guardarDatosAcceso(String email,String contrasena){
+    public void guardarDatosAcceso(String email,String contrasena,String token){
 
         // una vez que el usuario ha entrado con exito
         // su email y contrasena
@@ -28,6 +28,8 @@ public class GuardarDatoAcceso {
         editor.putBoolean(DatoAcceso.TIENEDATOS,true);
         editor.putString(DatoAcceso.EMALI,email);
         editor.putString(DatoAcceso.CONTRSENA,contrasena);
+        editor.putString(DatoAcceso.TOKEN,token);
+
         editor.commit();
     }
 

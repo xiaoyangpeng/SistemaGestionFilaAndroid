@@ -6,16 +6,19 @@ import android.app.FragmentTransaction;
 import android.widget.SearchView;
 
 import com.example.queue.R;
+import com.example.queue.listaproducto.acciones.apilistaproducto.ApillaListaProducto;
 import com.example.queue.listaproducto.interfaz.Fragment.Sihayragment;
 import com.example.queue.listaproducto.interfaz.Fragment.VacioFragment;
 import com.example.queue.listaproducto.interfaz.Listaproducto;
+import com.example.queue.listaproducto.productos.Productos;
+import com.example.queue.valorFijo.Ids;
+
+import java.util.ArrayList;
 
 public class BuscarProducto implements SearchView.OnQueryTextListener {
 
     private Listaproducto listaproducto =null;
-
-    private PetecionProductos petecionProductos;
-
+    private ApillaListaProducto    petecionProducto;
     private Fragment sihayragment;
 
     private   Fragment nohayFragment;
@@ -38,14 +41,16 @@ public class BuscarProducto implements SearchView.OnQueryTextListener {
         //buscarProducto.onActionViewCollapsed();//可以收起SearchView视图
 
         // hacer peticion de buscar productos
-        petecionProductos=new PetecionProductos(query, listaproducto);
 
-        petecionProductos.start();
+        petecionProducto=new ApillaListaProducto(listaproducto);
 
+        petecionProducto.crear(String.valueOf(Ids.id_cola),String.valueOf(Ids.id_usuario),query);
+
+        petecionProducto.start();
 
         // esperar respueta del servidor
         try {
-            petecionProductos.join();
+            petecionProducto.join();
         } catch (InterruptedException e) {
 
             e.printStackTrace();
@@ -60,7 +65,7 @@ public class BuscarProducto implements SearchView.OnQueryTextListener {
         // cuanto no existe este producto es devuelve json vacio
         // pero el objeto Productos no es null
         // ya que ya ha iniciado(new ) pero esta vacio
-        if(petecionProductos.getProductos()==null||petecionProductos.getProductos().size()!=0) {
+        if(petecionProducto.getProductos()==null||petecionProducto.getProductos().size()!=0) {
             sihayragment= new Sihayragment();
 
             mitransaccion.replace(R.id.herramientas, sihayragment);
@@ -80,7 +85,7 @@ public class BuscarProducto implements SearchView.OnQueryTextListener {
     }
 
 
-    public PetecionProductos getPetecionProductos() {
-        return petecionProductos;
+    public ArrayList<Productos> getPetecionProductos() {
+        return petecionProducto.getProductos();
     }
 }

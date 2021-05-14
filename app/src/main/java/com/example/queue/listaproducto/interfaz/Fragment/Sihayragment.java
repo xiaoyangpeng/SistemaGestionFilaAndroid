@@ -11,20 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.queue.R;
-import com.example.queue.listaproducto.acciones.PetecionProductos;
 import com.example.queue.listaproducto.interfaz.Listaproducto;
 import com.example.queue.listaproducto.interfaz.MiAdaptadorListaProducto;
 
 public class Sihayragment extends Fragment {
 
 
-    PetecionProductos petecionProductos;
-
-
-    public Sihayragment(){
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +39,7 @@ public class Sihayragment extends Fragment {
         lista.setLayoutManager(rl);
 
         // coger el objeto PetecionPorductos de Listaproducto Activity
-        RecyclerView.Adapter adaptador=new MiAdaptadorListaProducto(((Listaproducto)getActivity()).getPetecionProductos().getProductos());
+        RecyclerView.Adapter adaptador=new MiAdaptadorListaProducto(((Listaproducto)getActivity()).getPetecionProductos());
 
         lista.setAdapter(adaptador);
 

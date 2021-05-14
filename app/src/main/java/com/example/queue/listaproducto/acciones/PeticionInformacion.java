@@ -1,9 +1,11 @@
 package com.example.queue.listaproducto.acciones;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.queue.guardarDatoSharedPre.guradarDatoAcceso.LeerToken;
 import com.example.queue.listaproducto.interfaz.comida.InformacionComidaActivity;
 import com.example.queue.listaproducto.interfaz.mercancias.MercanciasActivity;
 import com.example.queue.listaproducto.productos.Comida;
@@ -32,9 +34,9 @@ public class PeticionInformacion extends  Thread{
 
    private Servicio servicio;
 
-   private Context context;
+   private Context  context;
 
-    public PeticionInformacion(Productos productos, Context context) {
+    public PeticionInformacion(Productos productos,Context context) {
         this.productos=productos;
         this.context=context;
 
@@ -55,6 +57,10 @@ public class PeticionInformacion extends  Thread{
 
             miconexion.setConnectTimeout(5000);// poner tiempo de espera
             // si esta fuera de tiempo de espera de conexion salta el error
+
+            String token= LeerToken.tokenUsuario(context);
+
+            miconexion.setRequestProperty("Authorization",token);
 
             if(miconexion.getResponseCode()==200)// conexion 200 con exito con 404 no encontrar la pagina
 

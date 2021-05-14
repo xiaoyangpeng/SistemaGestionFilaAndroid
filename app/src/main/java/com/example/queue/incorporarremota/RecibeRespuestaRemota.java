@@ -1,8 +1,8 @@
-package com.example.queue.comunicacionQR;
+package com.example.queue.incorporarremota;
 
 import android.os.Message;
-import android.util.Log;
 
+import com.example.queue.comunicacionQR.InformacionColaJson;
 import com.example.queue.fragments.miCola.CuentaAtrasTurno;
 import com.example.queue.fragments.miCola.MicolaFragment;
 import com.example.queue.valorFijo.Ids;
@@ -12,26 +12,24 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class RecibeRespuestaQR extends  Thread{
+public class RecibeRespuestaRemota extends  Thread{
 
     private Socket qrSocket;
-    private  QRActivity qrActivity;
+    private InformacionTiendaActivity informacionTiendaActivity;
     private DataInputStream resquestaQR;
 
     private InformacionColaJson colaJson;
 
-    private String miturno;
 
-    public RecibeRespuestaQR(Socket qrSocket, QRActivity qrActivity) {
+    public RecibeRespuestaRemota(Socket qrSocket,InformacionTiendaActivity informacionTiendaActivity) {
         this.qrSocket = qrSocket;
-        this.qrActivity = qrActivity;
+        this.informacionTiendaActivity=informacionTiendaActivity;
     }
 
     /**
      *
-     * @preturn  -1: error QR
-     * 1 QR correcto
-     * 4 fallo conexion servidor
+     * @preturn
+     * 1 incorporado
      * 2 ya esta dentro de la cola
      */
     @Override
@@ -40,7 +38,6 @@ public class RecibeRespuestaQR extends  Thread{
 
         try {
             resquestaQR=new DataInputStream(qrSocket.getInputStream());
-
 
             Message msg=new Message();
             Gson gosn=new Gson();
@@ -53,7 +50,7 @@ public class RecibeRespuestaQR extends  Thread{
 
                     msg2.what=1; // ya ha incorporado en fila
 
-                    qrActivity.mainHandler.sendMessage(msg2);
+                    informacionTiendaActivity.mainHandler.sendMessage(msg2);
 
                     MicolaFragment.mViewModel.setPuedeAnadirPorducto(true);
 
@@ -98,17 +95,12 @@ public class RecibeRespuestaQR extends  Thread{
 
                     }
 
-                }else if(respuesta==-1){
-                    MicolaFragment.mViewModel.setPuedeAnadirPorducto(true);
-                    msg.what=-1;
-                    qrSocket.close();
-
                 }else if(respuesta==2){
                     msg.what=2;
                     qrSocket.close();
                 }
 
-            qrActivity.mainHandler.sendMessage(msg);
+            informacionTiendaActivity.mainHandler.sendMessage(msg);
 
         } catch (IOException e) {
             e.printStackTrace();

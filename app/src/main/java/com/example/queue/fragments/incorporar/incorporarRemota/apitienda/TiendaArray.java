@@ -11,8 +11,5 @@ public class TiendaArray {
 		return tiendaArray;
 	}
 
-	public void setTiendaArray(ArrayList<Tienda> tiendaArray) {
-		this.tiendaArray = tiendaArray;
-	}
 
 }

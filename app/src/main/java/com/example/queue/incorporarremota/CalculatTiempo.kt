@@ -1,13 +1,13 @@
-package com.example.queue.informaciontienda
+package com.example.queue.incorporarremota
 
 import android.content.Context
 import android.widget.TextView
 import com.bigkoo.pickerview.OptionsPickerView
 
-class CalculatTiempo {
+class CalculatTiempo(var tiempoUltimo:Int){
 
 
-    fun tiempo( tiempoUltimo:Int,context:Context,timepoEligido:TextView){
+    fun tiempo(context:Context,timepoEligido:TextView){
 
         var hora:ArrayList<Int> = ArrayList()
 
@@ -56,7 +56,9 @@ class CalculatTiempo {
             options1, options2, _,_
             ->
 
-            timepoEligido.setText(hora.get(options1).toString() + minutos[options1].get(options2).toString())
+            timepoEligido.setText(hora.get(options1).toString()+ " H     " + minutos[options1].get(options2).toString() +"Min")
+
+            tiempoUltimo=hora.get(options1)*60+ minutos[options1].get(options2)
 
         }))
 
@@ -66,6 +68,8 @@ class CalculatTiempo {
         optcionView.show()
 
     }
+
+
 
 
 }

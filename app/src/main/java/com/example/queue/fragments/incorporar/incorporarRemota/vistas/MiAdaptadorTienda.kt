@@ -9,10 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.queue.R
 import com.example.queue.fragments.incorporar.incorporarRemota.apitienda.Tienda
-import com.example.queue.informaciontienda.InformacionTiendaActivity
+import com.example.queue.incorporarremota.InformacionTiendaActivity
 import com.jakewharton.rxbinding2.view.RxView
-import io.reactivex.disposables.Disposable
-import io.reactivex.plugins.RxJavaPlugins.onSubscribe
 import java.util.concurrent.TimeUnit
 
 class MiAdaptadorTienda(var tiendaArray: ArrayList<Tienda>) : RecyclerView.Adapter<MiAdaptadorTienda.MiViewHolder>() {

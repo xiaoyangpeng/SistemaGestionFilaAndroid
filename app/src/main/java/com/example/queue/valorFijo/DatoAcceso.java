@@ -18,4 +18,7 @@ public class DatoAcceso {
 
     public final static String SEXO="SEXO";
 
+
+    public final static String TOKEN="TOKEN";
+
 }

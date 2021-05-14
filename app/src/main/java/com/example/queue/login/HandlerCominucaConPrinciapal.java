@@ -66,7 +66,7 @@ public class HandlerCominucaConPrinciapal  {
 
                GuardarDatoAcceso guardarDatoAcceso=new GuardarDatoAcceso(loginActivity);
 
-               guardarDatoAcceso.guardarDatosAcceso(bundle.getString(DatoAcceso.EMALI),bundle.getString(DatoAcceso.CONTRSENA));
+               guardarDatoAcceso.guardarDatosAcceso(bundle.getString(DatoAcceso.EMALI),bundle.getString(DatoAcceso.CONTRSENA),bundle.getString(DatoAcceso.TOKEN));
 
                // termiar el activity de login
                // porque ya no necesita mas

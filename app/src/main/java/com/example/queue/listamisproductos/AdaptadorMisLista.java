@@ -9,8 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.queue.R;
-import com.example.queue.listaproducto.interfaz.MiAdaptadorListaProducto;
-import com.example.queue.listaproducto.productos.Productos;
+import com.example.queue.listamisproductos.apimisProducto.ListaProducto;
 
 import java.util.ArrayList;
 

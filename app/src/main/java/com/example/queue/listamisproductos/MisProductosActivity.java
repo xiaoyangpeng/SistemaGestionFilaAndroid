@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.queue.R;
+import com.example.queue.listamisproductos.apimisProducto.ApiGetMisProductos;
+import com.example.queue.listamisproductos.apimisProducto.ApillamaMisProductos;
+import com.example.queue.listamisproductos.apimisProducto.ListaProducto;
 import com.example.queue.valorFijo.Ids;
 
 public class MisProductosActivity extends AppCompatActivity {
@@ -29,13 +32,11 @@ public class MisProductosActivity extends AppCompatActivity {
         // añadir flecha vuelve atras y su accione esta en  onSupportNavigateUp()
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-
-
         totalPrecio = (TextView) findViewById(R.id.totalMisproductos);
 
         if(Ids.yaestaEncola) {
 
-                    PeticionListaMisProductos peticionListaMisProductos = new PeticionListaMisProductos();
+                 /*   PeticionListaMisProductos peticionListaMisProductos = new PeticionListaMisProductos();
 
                     peticionListaMisProductos.start();
 
@@ -43,9 +44,22 @@ public class MisProductosActivity extends AppCompatActivity {
                         peticionListaMisProductos.join();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
 
-                    // crear view de lista
+            ApillamaMisProductos    peticionListaMisProductos=new ApillamaMisProductos(this);
+
+            peticionListaMisProductos.crear(Ids.id_cola,Ids.id_usuario);
+
+            peticionListaMisProductos.start();
+
+            try {
+                peticionListaMisProductos.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+            // crear view de lista
                     RecyclerView lista = (RecyclerView) findViewById(R.id.viewListasProductos);
 
                     lista.setNestedScrollingEnabled(false);
@@ -63,7 +77,6 @@ public class MisProductosActivity extends AppCompatActivity {
                     RecyclerView.Adapter adaptador = new AdaptadorMisLista(peticionListaMisProductos.getListaProducto());
 
                     lista.setAdapter(adaptador);
-
 
                     // cuando vuvele array vacion signifaca aun no hay producto
                     if(peticionListaMisProductos.getListaProducto()==null){

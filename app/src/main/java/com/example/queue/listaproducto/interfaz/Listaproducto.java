@@ -15,12 +15,13 @@ import android.widget.SearchView;
 
 import com.example.queue.R;
 import com.example.queue.listaproducto.acciones.BuscarProducto;
-import com.example.queue.listaproducto.acciones.PetecionProductos;
+import com.example.queue.listaproducto.acciones.apilistaproducto.ApillaListaProducto;
+import com.example.queue.listaproducto.productos.Productos;
 import com.example.queue.probarConexionInternet.Fallaconexion;
 
-public class Listaproducto extends AppCompatActivity {
+import java.util.ArrayList;
 
-    PetecionProductos petecionProductos;
+public class Listaproducto extends AppCompatActivity {
 
 
    private SearchView buscarProducto;
@@ -63,7 +64,7 @@ public class Listaproducto extends AppCompatActivity {
 
     // devuelve el objeto PetecionProductos pero dentro de clase BuscarProducto ya que
     // PetecionProductos no crea dentro de esta clase
-    public PetecionProductos getPetecionProductos() {
+    public ArrayList<Productos> getPetecionProductos() {
         return accionbuscarProducto.getPetecionProductos();
     }
 

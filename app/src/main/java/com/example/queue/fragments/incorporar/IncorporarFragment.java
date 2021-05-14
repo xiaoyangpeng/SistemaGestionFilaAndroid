@@ -33,7 +33,7 @@ public class IncorporarFragment extends Fragment {
     private View view;
     public Context context;
 
-    private Button button;
+    private ImageView remota;
 
     public static IncorporarFragment newInstance() {
         return new IncorporarFragment();
@@ -49,7 +49,7 @@ public class IncorporarFragment extends Fragment {
         escanear = (ImageView) view.findViewById(R.id.escannear);
 
 
-        button=view.findViewById(R.id.remota);
+        remota=(ImageView) view.findViewById(R.id.remota);
         context=this.getContext();
 
 
@@ -65,7 +65,7 @@ public class IncorporarFragment extends Fragment {
          escanear.setOnClickListener(new ListenerEscannear(view,this));
 
 
-         button.setOnClickListener(new View.OnClickListener() {
+        remota.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
 

@@ -9,7 +9,7 @@ class ConexionUrl {
 
         var CONEXION = false
 
-        val IP:String="192.168.1.136"
+        val IP:String="192.168.210.1"
 
         val PORT:Int=8888
 
@@ -20,7 +20,7 @@ class ConexionUrl {
 
        // val IP=""
 
-        val HTTPJSON="http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandaListaporqr?qr="
+        val HTTPJSON="http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandaListaporqr"
 
 
         val  HTTPJSONINFORMACION="http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandarinformaciondeproducto?idusuario=";
@@ -30,7 +30,7 @@ class ConexionUrl {
 
         var HTTPJSONMIPRODUCTO = "http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandarlistaproductousuario?idcola="
 
-        var HTTPJSONMANDACUENTA = "http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandarcuenta"
+        var HTTPJSONMANDACUENTA = "http://${IP}:${PORTWEB}/proyectoFinalEntrada/mandarcuenta?idproducto="
 
     }
 

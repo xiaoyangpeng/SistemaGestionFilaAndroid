@@ -19,7 +19,7 @@ class SarchViewBuscaTienda(var remotaActivity: RemotaActivity, var buscatienda: 
 
         buscatienda.clearFocus() //可以收起键盘 // recoge teclado
 
-        var buscaTienda : ApiCrearTienda = ApiCrearTienda()
+        var buscaTienda : ApiCrearTienda = ApiCrearTienda(remotaActivity)
 
         buscaTienda.crear(query)
 

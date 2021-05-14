@@ -7,10 +7,11 @@
     tools:context=".listaproducto.interfaz.Fragment.VacioFragment">
 
     <TextView
-        android:layout_width="260dp"
-        android:layout_height="172dp"
-        android:layout_marginTop="184dp"
+        android:layout_width="280dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="120dp"
         android:text="No existe este producto"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

@@ -32,7 +32,7 @@ class CargarFoto( val idProducto: Int ,val handler :Handler) {
 
         var miconexion: HttpURLConnection
 
-        var url: URL =URL(ConexionUrl.HTTPJSONMANDACUENTA)
+        var url: URL =URL(ConexionUrl.HTTPJSONMANDACUENTA+idProducto)
 
         miconexion=url.openConnection() as HttpURLConnection
 

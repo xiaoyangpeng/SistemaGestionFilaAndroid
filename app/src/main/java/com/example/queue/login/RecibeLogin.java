@@ -58,9 +58,13 @@ public class RecibeLogin extends Thread {
 
                case 1 :
 
+                        // leer token
+                    String token=entrada.readUTF();
+
                    Bundle bundle = new Bundle();
                    bundle.putString(DatoAcceso.EMALI,email);
                    bundle.putString(DatoAcceso.CONTRSENA,contrasena);
+                   bundle.putString(DatoAcceso.TOKEN,token);
                    msg.setData(bundle);
                    msg.what = 1;
 

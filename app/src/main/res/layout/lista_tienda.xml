@@ -12,7 +12,7 @@
     android:paddingBottom="5dp">
 
     <TableLayout
-        android:layout_width="wrap_content"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boder"
         tools:layout_conversion_absoluteHeight="151dp"
@@ -48,7 +48,7 @@
 
             <TextView
                 android:id="@+id/calleTienda"
-                android:layout_width="match_parent"
+                android:layout_width="325dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/boder"
                 android:gravity="center" />

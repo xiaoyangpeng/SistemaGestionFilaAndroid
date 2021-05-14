@@ -9,26 +9,26 @@
 
     <ImageView
         android:id="@+id/escannear"
-        android:layout_width="0dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="104dp"
+        android:layout_width="217dp"
+        android:layout_height="212dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/personalizado_boton_login"
         android:src="@drawable/escannear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/remota"
+        app:layout_constraintBottom_toTopOf="@+id/remota"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintVertical_bias="0.803" />
 
-    <Button
+    <ImageView
         android:id="@+id/remota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:layout_marginEnd="34dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/escannear"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="352dp"
+        android:layout_height="237dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/personalizado_boton_remota"
+        android:src="@drawable/incorporarremota"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

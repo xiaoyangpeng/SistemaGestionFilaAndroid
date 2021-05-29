@@ -17,8 +17,12 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.queue.guardarDatoSharedPre.limpiarShare.Limpiarshare;
 import com.example.queue.listamisproductos.MisProductosActivity;
+import com.example.queue.listamisproductos.apimisProducto.ListaProducto;
 import com.example.queue.listaproducto.interfaz.Listaproducto;
+import com.example.queue.login.LoginActivity;
+import com.example.queue.modificardato.ModificaActivity;
 import com.example.queue.permiso.DialogoPermisoCamara;
 import com.example.queue.probarConexionInternet.ProbarConexionInternet;
 import com.example.queue.zxing.activity.CaptureActivity;
@@ -129,6 +133,25 @@ public class MainActivity extends AppCompatActivity {
 
 
             startActivity(new Intent(mainActivity, MisProductosActivity.class));
+
+        }
+
+
+        public void salircuenta(View view){
+
+            Limpiarshare limpiarshare=new Limpiarshare(this);
+
+
+            startActivity(new Intent(mainActivity, LoginActivity.class));
+
+            this.finish();
+
+        }
+
+
+        public void modificarCuenta(View view){
+
+            startActivity(new Intent(mainActivity, ModificaActivity.class));
 
         }
 

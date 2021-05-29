@@ -14,32 +14,35 @@
 
         <LinearLayout
             android:layout_width="182dp"
-            android:layout_height="483dp"
+            android:layout_height="391dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Nombre" />
+                android:text="Nombre Tienda"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Turno Actual" />
+                android:text="Turno Actual"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Ultimo Turno" />
+                android:text="Ultimo Turno"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -47,12 +50,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Tiempo estimada" />
+                android:text="Tiempo estimada"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/incorAhoraTiendaInfo"
                 android:layout_width="wrap_content"
-                android:layout_height="7dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:onClick="incorporar"
@@ -61,41 +65,46 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="463dp"
+            android:layout_height="389dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nombreTiendaInfo"
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
+                android:layout_height="71dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/turnoActualTiendaInfo"
                 android:layout_width="match_parent"
-                android:layout_height="86dp"
+                android:layout_height="77dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/ultimoTurnoTiendaInfo"
                 android:layout_width="match_parent"
-                android:layout_height="96dp"
+                android:layout_height="61dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tiempoEstimaTiendaInfo"
                 android:layout_width="match_parent"
-                android:layout_height="84dp"
+                android:layout_height="51dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#F60B0B"
+                android:textSize="18dp" />
 
             <Button
                 android:id="@+id/incorMiHoraTiendaInfo"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:onClick="EligeTiempo"

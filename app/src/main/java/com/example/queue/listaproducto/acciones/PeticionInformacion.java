@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.queue.guardarDatoSharedPre.guradarDatoAcceso.LeerToken;
 import com.example.queue.listaproducto.interfaz.comida.InformacionComidaActivity;
 import com.example.queue.listaproducto.interfaz.mercancias.MercanciasActivity;
+import com.example.queue.listaproducto.interfaz.servicio.ServicioActivity;
 import com.example.queue.listaproducto.productos.Comida;
 import com.example.queue.listaproducto.productos.Mercancia;
 
@@ -19,6 +20,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -83,6 +85,13 @@ public class PeticionInformacion extends  Thread{
 
 
                     servicio=gson.fromJson(reader, Servicio.class);
+
+                    Bundle b3=new Bundle();
+                    b3.putSerializable("producto",productos);
+                    b3.putSerializable("servicio",  servicio);
+
+
+                    context.startActivity(new Intent(context, ServicioActivity.class).putExtras(b3));
 
                 }else if(productos.getCategoria().equals("mercancia")) {
 

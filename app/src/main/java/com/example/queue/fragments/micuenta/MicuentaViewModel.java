@@ -9,7 +9,7 @@ public class MicuentaViewModel extends ViewModel {
 
     private MutableLiveData<String> nombre;
 
-    private MutableLiveData<String> email;
+    private MutableLiveData<String> telefono;
 
 
     public MicuentaViewModel(){
@@ -22,11 +22,11 @@ public class MicuentaViewModel extends ViewModel {
             sexo.setValue("");
         }
 
-        if(email==null){
+        if(telefono ==null){
 
-           email=new MutableLiveData<>();
+           telefono =new MutableLiveData<>();
 
-            email.setValue("");
+            telefono.setValue("");
         }
 
         if(nombre==null){
@@ -45,8 +45,8 @@ public class MicuentaViewModel extends ViewModel {
         return sexo;
     }
 
-    public void setSexo(MutableLiveData<String> sexo) {
-        this.sexo = sexo;
+    public void setSexo(String sexo) {
+        this.sexo.postValue(sexo);
     }
 
     public MutableLiveData<String> getNombre() {
@@ -57,11 +57,12 @@ public class MicuentaViewModel extends ViewModel {
        this.nombre.setValue(nombre);
     }
 
-    public MutableLiveData<String> getEmail() {
-        return email;
+    public MutableLiveData<String> getTelefono() {
+        return telefono;
     }
 
-    public void setEmail(MutableLiveData<String> email) {
-        this.email = email;
+    public void setTelefono(String telefono) {
+
+        this.telefono.postValue(telefono);
     }
 }

@@ -14,55 +14,106 @@
         android:layout_height="match_parent"
         tools:context=".fragments.micuenta.MiCuentaFragment">
 
-        <TextView
-            android:id="@+id/MiCuentaNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="167dp"
-            android:text="@{data.getNombre()}"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/MicuentaSexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="@+id/MiCuentaNombre"
-            app:layout_constraintTop_toBottomOf="@+id/MiCuentaNombre" />
+            <LinearLayout
+                android:layout_width="211dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/MicuentaEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="@+id/MicuentaSexo"
-            app:layout_constraintTop_toBottomOf="@+id/MicuentaSexo" />
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="Nombre"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="269dp"
-            android:src="@drawable/ic_baseline_person_outline_24"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:gravity="center"
+                    android:text="Sexo"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="246dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginBottom="64dp"
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:gravity="center"
+                    android:text="Telefono"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/MiCuentaNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center"
+                    android:text="@{data.getNombre()}" />
+
+                <TextView
+                    android:id="@+id/MicuentaSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:gravity="center"
+                    android:text="@{data.getSexo()}" />
+
+                <TextView
+                    android:id="@+id/MicuentaEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@{data.getTelefono()}" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cuentamodificar"
+            android:layout_width="131dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="184dp"
+            android:onClick="modificarCuenta"
+            android:text="Modificar"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cuentasalir"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/cuentasalir"
+            android:layout_width="128dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="184dp"
+            android:layout_marginEnd="60dp"
+            android:onClick="salircuenta"
+            android:text="Salir"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

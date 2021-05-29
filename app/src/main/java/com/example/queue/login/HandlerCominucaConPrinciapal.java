@@ -44,10 +44,8 @@ public class HandlerCominucaConPrinciapal  {
        // 1 exito
        // 2 no esta activado
        // 3 ya esta en liena
-
        // 4 falla conexion
-
-
+        //  5 exito con Token
        loginActivity.activarODesactivaView(true);
 
        switch (msg.what) {
@@ -89,6 +87,12 @@ public class HandlerCominucaConPrinciapal  {
 
                Fallaconexion.fallaconexionServidor(loginActivity);
 
+               break;
+
+           case 5:
+               loginActivity.startActivity(new Intent(loginActivity.getBaseContext(), MainActivity.class));
+
+               loginActivity.finish();
                break;
        }
 

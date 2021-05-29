@@ -46,7 +46,6 @@ public class QRActivity extends AppCompatActivity {
 		viewQR=(ConstraintLayout)findViewById(R.id.viewQR);
 
 
-
 		qrActivity=this;
 
 		if (null != extras) {
@@ -54,8 +53,6 @@ public class QRActivity extends AppCompatActivity {
 		}
 
 		activarDesactivarView(true);
-
-		codigoQR="ASDF";
 
 		qrEnviar=new QrEnviar(qrActivity,codigoQR);
 
@@ -76,34 +73,7 @@ public class QRActivity extends AppCompatActivity {
 		};
 
 
-		/*
-		Button button=findViewById(R.id.qqqqq);
 
-
-		button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-
-				new Thread(new Runnable() {
-					@Override
-					public void run() {
-
-						try {
-
-							Log.v("123","123");
-							qrEnviar.outNumero.writeInt(123123);
-
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-
-
-					}
-				}).start();
-
-			}
-		});*/
 	}
 
 

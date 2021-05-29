@@ -2,5 +2,5 @@ package com.example.queue.valorFijo;
 
 public class Tiempo {
 
-    public final static int TIEMPOPARAMANDAREMAIL=10;
+    public final static int TIEMPOPARAMANDAREMAIL=30;
 }

@@ -82,7 +82,7 @@ public class InformacionComidaActivity extends AppCompatActivity {
 
             imagenComida=(ImageView) findViewById(R.id.imageComida);
 
-            cargarFoto=new CargarFoto(comida.getId_producto(),handler);
+            cargarFoto=new CargarFoto(comida.getId_producto(),handler,"comida");
 
             cargarFoto.cargarFoto();
 
@@ -138,7 +138,7 @@ public class InformacionComidaActivity extends AppCompatActivity {
             viewModelComida.setGuardarCambio(true);
 
             // mandar al servidor los cambios de productos
-            GuardarCambioProducto guardarCambioProducto=new GuardarCambioProducto(productos.getId_producto(),viewModelComida.getCantidad().getValue());
+            GuardarCambioProducto guardarCambioProducto=new GuardarCambioProducto(productos.getId_producto(),viewModelComida.getCantidad().getValue(),this);
             guardarCambioProducto.start();
 
             dialogoExito();

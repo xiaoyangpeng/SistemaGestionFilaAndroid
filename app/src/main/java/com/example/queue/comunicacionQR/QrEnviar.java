@@ -28,12 +28,9 @@ public class QrEnviar extends Thread{
     @Override
     public void run() {
 
-
         try {
 
             String email= LeerEmailUsuario.emailUsuario(qrActivity);
-
-
 
             socketQR =new Socket();
 //
@@ -43,10 +40,9 @@ public class QrEnviar extends Thread{
 
             outNumero.writeInt("incorporarQR".hashCode()); // primero envia numero para que el servidor sepa que es operaicon de sign up
 
-
             // enviar email
 
-        /*   if(email!=null) {
+           if(email!=null) {
 
                 outNumero.writeInt(email.length());
 
@@ -55,29 +51,20 @@ public class QrEnviar extends Thread{
 
                 outNumero.writeInt("nada".length());
                 outNumero.write("nada".getBytes());
-            }*/
-
-
-            outNumero.writeInt("8888".length());
-            outNumero.write("8888".getBytes());
-
-
+            }
 
             //enviar codigoQR
             outNumero.writeInt(codigoQR.length());
 
             outNumero.write(codigoQR.getBytes());
 
-
             outNumero.flush();
-
 
             RecibeRespuestaQR recibeRespuestaQR =new RecibeRespuestaQR(socketQR,qrActivity);
 
             recibeRespuestaQR.start();
 
         } catch (SocketTimeoutException e) {
-
 
             // en caso no puede conecetar con el servidor
             //es decir el tiempo de conexion es out

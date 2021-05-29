@@ -1,7 +1,7 @@
 package com.example.queue.comunicacionQR;
 
 import android.os.Message;
-import android.util.Log;
+import com.example.queue.notificacion.TocaSuTurno;
 
 import com.example.queue.fragments.miCola.CuentaAtrasTurno;
 import com.example.queue.fragments.miCola.MicolaFragment;
@@ -88,11 +88,18 @@ public class RecibeRespuestaQR extends  Thread{
                         // porque el tiempo va calcular por servidor
                        cuentaAtras.sigueCuentando=false;
 
-                       if(miturno.equals(colaJson.turnoActual)){
+                       int mitrunoInt=Integer.parseInt(miturno);
+
+                       int turnoAcutal=Integer.parseInt(colaJson.turnoActual);
+
+                       if(mitrunoInt<=turnoAcutal){
 
                            MicolaFragment.mViewModel.modificarTiempo(0);
                            MicolaFragment.mViewModel.setTurnosQueda("Toca su turno");
                            MicolaFragment.mViewModel.setPuedeAnadirPorducto(false);
+
+                            TocaSuTurno.tocaturno(qrActivity);
+                            
                            break;
                        }
 

@@ -1,8 +1,9 @@
 package com.example.queue.listaproducto.productos;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Servicio {
+public class Servicio  implements Serializable {
 
 	
 	

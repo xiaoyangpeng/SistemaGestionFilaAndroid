@@ -33,7 +33,7 @@ public class RecibeSign extends Thread {
 
             entrada = new DataInputStream(socketSign.getInputStream());
 
-            Boolean existeUsuario = entrada.readBoolean();
+            Boolean existeUsuario = entrada.readInt()==1;
 
 
             if( existeUsuario){

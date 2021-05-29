@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.queue.listaproducto.interfaz.comida.ViewModelComida;
 
 public class MercanciasViewModelFactory implements ViewModelProvider.Factory  {
 

@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class CuentaAtrasTurno extends Thread {
 
-        public static int jaja=0;
+
     public  boolean sigueCuentando=true;
 
     private MicolaViewModel micolaViewModel;

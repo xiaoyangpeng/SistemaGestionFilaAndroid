@@ -65,7 +65,6 @@ public class MiAdaptadorListaProducto extends RecyclerView.Adapter<MiAdaptadorLi
     }
 
 
-
     public static class MiViewHolder extends RecyclerView.ViewHolder{
 
         public TextView nombre;

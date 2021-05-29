@@ -7,6 +7,9 @@ import android.util.Log;
 import com.example.queue.login.EnviaLogin;
 import com.example.queue.login.LoginActivity;
 
+import com.example.queue.login.RecibeLogin;
+import com.example.queue.login.api.ApiLogin;
+import com.example.queue.login.api.ApiLoginToken;
 import com.example.queue.valorFijo.DatoAcceso;
 
 public class LeerDatodeAcceso   {
@@ -42,9 +45,20 @@ public class LeerDatodeAcceso   {
              activity.getUsuario().setText(email);
              activity.getContrasena().setText(contrasena);
 
-             activity.activarODesactivaView(false);
-             EnviaLogin enviaLogin = new EnviaLogin(email, contrasena, activity);
-             enviaLogin.start();
+             ApiLoginToken login=new ApiLoginToken(activity);
+             login.crear();
+             login.start();
+             try {
+                 login.join();
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+
+             String repuesta=login.respuesta();
+
+             RecibeLogin recibeLogin=new RecibeLogin(email,contrasena,activity);
+             recibeLogin.actuar(repuesta);
+
          }
 
 

@@ -69,14 +69,7 @@ public class MisProductosActivity extends AppCompatActivity {
 
                     lista.setHasFixedSize(true);
 
-                    RecyclerView.LayoutManager rl = new LinearLayoutManager(this);
 
-                    lista.setLayoutManager(rl);
-
-                    // coger el objeto PetecionPorductos de Listaproducto Activity
-                    RecyclerView.Adapter adaptador = new AdaptadorMisLista(peticionListaMisProductos.getListaProducto());
-
-                    lista.setAdapter(adaptador);
 
                     // cuando vuvele array vacion signifaca aun no hay producto
                     if(peticionListaMisProductos.getListaProducto()==null){
@@ -84,6 +77,17 @@ public class MisProductosActivity extends AppCompatActivity {
                         totalPrecio.setText("Aún no has añadir ningún producto");
 
                     }else {
+
+
+                        RecyclerView.LayoutManager rl = new LinearLayoutManager(this);
+
+                        lista.setLayoutManager(rl);
+
+                        // coger el objeto PetecionPorductos de Listaproducto Activity
+                        RecyclerView.Adapter adaptador = new AdaptadorMisLista(peticionListaMisProductos.getListaProducto());
+
+                        lista.setAdapter(adaptador);
+
                             // suma los precios total
                         double total = 0;
 

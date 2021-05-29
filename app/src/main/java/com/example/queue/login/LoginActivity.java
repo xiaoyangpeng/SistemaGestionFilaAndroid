@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,6 +20,7 @@ import com.example.queue.R;
 import com.example.queue.guardarDatoSharedPre.guradarDatoAcceso.LeerDatodeAcceso;
 import com.example.queue.probarConexionInternet.ProbarConexionInternet;
 import com.example.queue.sign.SignActivity;
+import com.example.queue.valorFijo.ConexionUrl;
 
 
 public class LoginActivity extends Activity {
@@ -172,6 +174,14 @@ public class LoginActivity extends Activity {
 
             procesoLogin.setVisibility(View.VISIBLE);// ser visible el ciruclo de proceso
         }
+
+    }
+
+    public void OlvidarMiContrasena(View view){
+
+        Uri uri = Uri.parse(ConexionUrl.Companion.getOLVIDARCONTRASENA());
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
 
     }
 

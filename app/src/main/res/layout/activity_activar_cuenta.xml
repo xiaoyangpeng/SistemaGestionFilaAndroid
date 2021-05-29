@@ -11,8 +11,8 @@
         android:id="@+id/editextCodigoActivacion"
         android:layout_width="197dp"
         android:layout_height="38dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/personalizado_edittext_background"
         android:ems="10"
         android:hint="Codigo de Activación"
@@ -25,7 +25,7 @@
         android:id="@+id/botonActivarCuenta"
         android:layout_width="209dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginBottom="240dp"
         android:background="@drawable/personalizado_boton_login"
         android:gravity="center"
         android:text="Activar"
@@ -33,15 +33,14 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editextCodigoActivacion"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="401dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Te hemos mantado  código de activación  en siguente email"
         android:textSize="15dp"
@@ -53,11 +52,10 @@
         android:id="@+id/textEmailActivacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:textColor="#1305E6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -65,31 +63,30 @@
         android:id="@+id/textTiempoActivaCuenta"
         android:layout_width="31dp"
         android:layout_height="25dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="60"
         android:textColor="#F10D0D"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/botonActivarCuenta"
+        app:layout_constraintEnd_toStartOf="@+id/vuelveMandarEmail"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toEndOf="@+id/editextCodigoActivacion"
-        app:layout_constraintTop_toTopOf="@+id/editextCodigoActivacion"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintTop_toBottomOf="@+id/textEmailActivacion" />
 
     <Button
         android:id="@+id/vuelveMandarEmail"
-        android:layout_width="88dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:alpha="0.3"
         android:enabled="false"
         android:text="Vueleve a Mandar"
         android:textColor="#151414"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/botonActivarCuenta"
-        app:layout_constraintStart_toEndOf="@+id/textTiempoActivaCuenta"
-        app:layout_constraintTop_toBottomOf="@+id/textEmailActivacion"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailActivacion" />
 
     <ProgressBar
         android:id="@+id/progressBarActivarCuenta"

@@ -14,7 +14,7 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
-class CargarFoto( val idProducto: Int ,val handler :Handler) {
+class CargarFoto( val idProducto: Int ,val handler :Handler,val category: String) {
 
 
     fun cargarFoto()=GlobalScope.launch{
@@ -32,7 +32,7 @@ class CargarFoto( val idProducto: Int ,val handler :Handler) {
 
         var miconexion: HttpURLConnection
 
-        var url: URL =URL(ConexionUrl.HTTPJSONMANDACUENTA+idProducto)
+        var url: URL =URL(ConexionUrl.HTTPJSONMANDACUENTA+idProducto+"&categoria="+category)
 
         miconexion=url.openConnection() as HttpURLConnection
 

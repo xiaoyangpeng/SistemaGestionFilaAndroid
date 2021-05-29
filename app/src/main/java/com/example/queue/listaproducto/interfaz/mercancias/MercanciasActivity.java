@@ -92,7 +92,7 @@ public class MercanciasActivity extends AppCompatActivity {
 
             imagenMercancia=findViewById(R.id.mercanciaFoto);
 
-            cargarFoto=new CargarFoto(mercancia.getId_producto(),handler);
+            cargarFoto=new CargarFoto(mercancia.getId_producto(),handler,"mercancia");
 
             cargarFoto.cargarFoto();
 
@@ -145,14 +145,9 @@ public class MercanciasActivity extends AppCompatActivity {
             viewModelMercancias.setGuardarCambio(true);
 
             // mandar al servidor los cambios de productos
-            GuardarCambioProducto guardarCambioProducto=new GuardarCambioProducto(productos.getId_producto(),viewModelMercancias.getCantidad().getValue());
+            GuardarCambioProducto guardarCambioProducto=new GuardarCambioProducto(productos.getId_producto(),viewModelMercancias.getCantidad().getValue(),this);
             guardarCambioProducto.start();
 
-            try {
-                guardarCambioProducto.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
             dialogoExito();
 

@@ -63,6 +63,11 @@ public class ApillamaMisProductos extends  Thread {
     }
     public ArrayList<ListaProducto> getListaProducto(){
 
+
+        if(listaProductoAux==null){
+
+            return null;
+        }
         return  listaProductoAux.getListaproducto();
 
     }

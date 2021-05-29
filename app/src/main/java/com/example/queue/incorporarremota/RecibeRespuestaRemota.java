@@ -5,6 +5,7 @@ import android.os.Message;
 import com.example.queue.comunicacionQR.InformacionColaJson;
 import com.example.queue.fragments.miCola.CuentaAtrasTurno;
 import com.example.queue.fragments.miCola.MicolaFragment;
+import com.example.queue.notificacion.TocaSuTurno;
 import com.example.queue.valorFijo.Ids;
 import com.google.gson.Gson;
 
@@ -85,11 +86,18 @@ public class RecibeRespuestaRemota extends  Thread{
                         // porque el tiempo va calcular por servidor
                        cuentaAtras.sigueCuentando=false;
 
-                       if(miturno.equals(colaJson.turnoActual)){
+                        int mitrunoInt=Integer.parseInt(miturno);
 
-                           MicolaFragment.mViewModel.modificarTiempo(0);
+                        int turnoAcutal=Integer.parseInt(colaJson.turnoActual);
+
+                        if(mitrunoInt<=turnoAcutal){
+
+
+                            MicolaFragment.mViewModel.modificarTiempo(0);
                            MicolaFragment.mViewModel.setTurnosQueda("Toca su turno");
                            MicolaFragment.mViewModel.setPuedeAnadirPorducto(false);
+
+                           TocaSuTurno.tocaturno(informacionTiendaActivity);
                            break;
                        }
 

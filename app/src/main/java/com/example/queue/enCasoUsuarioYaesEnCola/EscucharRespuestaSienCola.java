@@ -7,6 +7,7 @@ import com.example.queue.comunicacionQR.InformacionColaJson;
 import com.example.queue.comunicacionQR.QRActivity;
 import com.example.queue.fragments.miCola.CuentaAtrasTurno;
 import com.example.queue.fragments.miCola.MicolaFragment;
+import com.example.queue.notificacion.TocaSuTurno;
 import com.example.queue.valorFijo.Ids;
 import com.google.gson.Gson;
 
@@ -37,7 +38,6 @@ public class EscucharRespuestaSienCola extends  Thread {
         try {
             resquestaCola=new DataInputStream(miSocket.getInputStream());
 
-            Ids.yaestaEncola=true;
 
 
             // dejar lo interfaz puede visualiza y tocar lo
@@ -48,6 +48,7 @@ public class EscucharRespuestaSienCola extends  Thread {
 
             if(resquestaCola.readBoolean()){
 
+                Ids.yaestaEncola=true;
 
                 MicolaFragment.mViewModel.setPuedeAnadirPorducto(true);
 
@@ -89,6 +90,7 @@ public class EscucharRespuestaSienCola extends  Thread {
                         MicolaFragment.mViewModel.modificarTiempo(0);
                         MicolaFragment.mViewModel.setTurnosQueda("Toca su turno");
                         MicolaFragment.mViewModel.setPuedeAnadirPorducto(false);
+                        TocaSuTurno.tocaturno(micolaFragment.getContext());
                         break;
                     }
 

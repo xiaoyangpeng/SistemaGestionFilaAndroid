@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import com.example.queue.R
@@ -39,6 +40,18 @@ class InformacionTiendaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informacion_tienda)
+
+
+
+
+        // añadir en el toolbar la flecha hacia atras
+
+        // añadir en el toolbar la flecha hacia atras
+        val actionBar = this.supportActionBar
+        actionBar!!.title = "Incorporación remota"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+
 
         var info =intent.extras
 
@@ -145,7 +158,17 @@ class InformacionTiendaActivity : AppCompatActivity() {
     }
 
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+
+        val id = item.itemId // cuando pulsa los opciones del menu coge su id
+
+        if (id == android.R.id.home) { // en caso id es flecha es decir vuelve atras
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 

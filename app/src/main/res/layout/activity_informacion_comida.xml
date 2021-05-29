@@ -14,6 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
         tools:context=".listaproducto.interfaz.comida.InformacionComidaActivity">
 
         <ScrollView
@@ -96,8 +99,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="+"
                             android:onClick="@{()->data.setCantidad(+1)}"
+                            android:text="+"
                             android:textSize="40dp" />
 
                         <TextView
@@ -116,8 +119,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="-"
                             android:onClick="@{()->data.setCantidad(-1)}"
+                            android:text="-"
                             android:textSize="40dp" />
 
                     </LinearLayout>

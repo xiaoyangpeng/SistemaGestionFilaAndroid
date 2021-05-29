@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.queue.MainActivity
 import com.example.queue.comunicacionQR.QRActivity
 import com.example.queue.fragments.incorporar.IncorporarFragment
+import com.example.queue.zxing.activity.CaptureActivity
 
 
 class ListenerEscannear(val view: View, val fragmet: Fragment) : View.OnClickListener{
@@ -36,13 +37,12 @@ class ListenerEscannear(val view: View, val fragmet: Fragment) : View.OnClickLis
 
             } else {
 
-                //Intent i = new Intent(view.getContext(), CaptureActivity.class);
+               val i =  Intent(view.getContext(), CaptureActivity::class.java);
 
-                val i = Intent(view.context, QRActivity::class.java)
 
                 fragmet.startActivity(i)
 
-              yaHapulsado = true // 记住删除现在放在这里就来实验而已
+
             }
 
 

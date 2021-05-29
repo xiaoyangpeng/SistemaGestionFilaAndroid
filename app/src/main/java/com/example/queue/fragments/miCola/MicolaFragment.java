@@ -115,14 +115,14 @@ public class MicolaFragment extends Fragment {
         // una vez en la cola va ser true
         // cuando es true ya no mando socket al servidor
 
-      /*  if(!Ids.yaestaEncola) {
+        if(!Ids.yaestaEncola) {
 
             EnviarSiEstaEncola enviarSiEstaEncola = new EnviarSiEstaEncola(mainActivity, micolaFragment);
 
             enviarSiEstaEncola.start();
 
             serVisibleoNO(false);
-        }*/
+        }
 
 
     }

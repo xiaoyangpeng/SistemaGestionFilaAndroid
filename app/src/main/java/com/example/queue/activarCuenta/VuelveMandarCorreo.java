@@ -1,41 +1,27 @@
 package com.example.queue.activarCuenta;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
 
-public class VuelveMandarCorreo extends  Thread{
+import com.example.queue.activarCuenta.apisigin.LlamaCambiaCodigo;
 
-    private Socket socketActiva;
-    private String email;
+public class VuelveMandarCorreo {
 
-    public VuelveMandarCorreo(String email) {
+    private String token;
 
-        this.email = email;
+    public VuelveMandarCorreo(String token) {
+
+        this.token=token;
     }
 
-    @Override
+
     public void run() {
-        DataOutputStream out=null;
-
-        try {
-            socketActiva=new Socket("192.168.31.146",8888);
-
-            out=new DataOutputStream(socketActiva.getOutputStream());
 
 
-            // primero manda operacion de cambiarcodido al servidor
-            out.writeInt("cambiarcodido".hashCode());
+        LlamaCambiaCodigo cambiaCodigo=new LlamaCambiaCodigo();
 
-            // escribe su email
-            out.writeInt(email.length());
-            out.write(email.getBytes());
+        cambiaCodigo.crear(token);
 
-            out.flush();
+        cambiaCodigo.start();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 }

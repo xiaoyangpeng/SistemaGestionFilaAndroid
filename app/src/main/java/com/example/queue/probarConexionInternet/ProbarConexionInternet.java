@@ -49,11 +49,11 @@ public class ProbarConexionInternet extends BroadcastReceiver {
 
                     if (info.getType()==ConnectivityManager.TYPE_WIFI) {
 
-                        toast("Conexion con wifi",context);
+                       // toast("Conexion con wifi",context);
 
                     }else if(info.getType()==ConnectivityManager.TYPE_MOBILE){
 
-                        toast("Conexion con datos",context);
+                       // toast("Conexion con datos",context);
                     }
                 }else {
 
@@ -71,7 +71,7 @@ public class ProbarConexionInternet extends BroadcastReceiver {
                         intent.setClass(context, NohayConexionLoginActivity.class);
                  //   }
 
-                    toast("Ha perdido conexion de internet",context);
+                   // toast("Ha perdido conexion de internet",context);
 
                     context.startActivity(intent);
 

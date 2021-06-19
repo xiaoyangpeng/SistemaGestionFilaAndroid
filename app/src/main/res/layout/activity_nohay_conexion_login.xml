@@ -41,4 +41,5 @@ tools:context=".noHayConexion.NohayConexionLoginActivity">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/no_hay_wifi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,8 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".modificardato.ModificaActivity"></activity>
-        <activity android:name=".incorporarremota.InformacionTiendaActivity"></activity>
+        <activity android:name=".recibeHistoriaFila.ui.HistoriaFilaActivity"></activity>
+        <activity android:name=".modificardato.ModificaActivity" />
+        <activity android:name=".incorporarremota.InformacionTiendaActivity" />
         <activity android:name=".fragments.incorporar.incorporarRemota.RemotaActivity" />
         <activity android:name=".listaproducto.interfaz.servicio.ServicioActivity" />
         <activity android:name=".listamisproductos.MisProductosActivity" />
@@ -34,7 +35,7 @@
         <activity android:name=".listaproducto.interfaz.mercancias.MercanciasActivity" />
         <activity android:name=".listaproducto.interfaz.comida.InformacionComidaActivity" />
         <activity android:name=".listaproducto.interfaz.Listaproducto" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".zxing.activity.CaptureActivity"
             android:parentActivityName=".MainActivity"
@@ -55,13 +56,15 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".login.LoginActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <activity android:name=".privacy.AceptPrivacyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".privacy.DetailPrivacyActivity" />
     </application>
 
 </manifest>

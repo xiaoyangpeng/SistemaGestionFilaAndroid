@@ -13,4 +13,11 @@
     <string name="telefono">Tel</string>
 
     <string name="nombre">Nombre</string>
+
+    <string name="texto_privacidad">
+        Tu privacidad es nuestra prioridad.\n
+        Para poder utilizar nuestra aplicación debes aceptar los Términos de Uso
+        y el procesamiento, tratamiento y transferencia de tus datos personales conforme a lo
+        dispuesto en las Politicas de Privacidad.
+    </string>
 </resources>

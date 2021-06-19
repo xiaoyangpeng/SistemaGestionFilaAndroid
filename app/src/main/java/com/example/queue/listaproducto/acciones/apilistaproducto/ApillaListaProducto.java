@@ -33,7 +33,7 @@ public class ApillaListaProducto extends  Thread {
         this.activity = activity;
     }
 
-    public void crear(String idcola,String idusuario,String nombreProducto){
+    public void crear(String idcola,String nombreProducto){
 
         Retrofit retrofit = new Retrofit.Builder()
                 //设置网络请求BaseUrl地址
@@ -49,7 +49,7 @@ public class ApillaListaProducto extends  Thread {
         String token=  LeerToken.tokenUsuario(activity);
 
         //对 发送请求 进行封装
-        dataCall= apiGet.getJSonData(idcola,idusuario,nombreProducto,token);
+        dataCall= apiGet.getJSonData(idcola,nombreProducto,token);
 
     }
 

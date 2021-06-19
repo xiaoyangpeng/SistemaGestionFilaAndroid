@@ -2,29 +2,27 @@ package com.example.queue.incorporarremota;
 
 import android.os.Message;
 
-import com.example.queue.comunicacionQR.InformacionColaJson;
 import com.example.queue.fragments.miCola.CuentaAtrasTurno;
 import com.example.queue.fragments.miCola.MicolaFragment;
-import com.example.queue.notificacion.TocaSuTurno;
+import com.example.queue.incorporarremota.apiTienda.ApiIncorporarRemota;
+import com.example.queue.incorporarremota.apiTienda.Tiendaremota;
+import com.example.queue.modificarUiFila.ModifciarUIMicola;
 import com.example.queue.valorFijo.Ids;
-import com.google.gson.Gson;
-
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.net.Socket;
 
 public class RecibeRespuestaRemota extends  Thread{
 
-    private Socket qrSocket;
     private InformacionTiendaActivity informacionTiendaActivity;
-    private DataInputStream resquestaQR;
 
-    private InformacionColaJson colaJson;
+    private Tiendaremota tiendaremota;
+
+    private boolean respuesta;
 
 
-    public RecibeRespuestaRemota(Socket qrSocket,InformacionTiendaActivity informacionTiendaActivity) {
-        this.qrSocket = qrSocket;
+    public RecibeRespuestaRemota(Tiendaremota tiendaremota,InformacionTiendaActivity informacionTiendaActivity) {
+
         this.informacionTiendaActivity=informacionTiendaActivity;
+
+        this.tiendaremota=tiendaremota;
     }
 
     /**
@@ -36,16 +34,27 @@ public class RecibeRespuestaRemota extends  Thread{
     @Override
     public void run() {
 
+        ApiIncorporarRemota remota=new ApiIncorporarRemota(informacionTiendaActivity);
+
+        remota.crear(tiendaremota.getTiempomedia(),tiendaremota.getId_cola());
+
+        remota.start();
 
         try {
-            resquestaQR=new DataInputStream(qrSocket.getInputStream());
+            remota.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-            Message msg=new Message();
-            Gson gosn=new Gson();
+        /**
+         * repuesta true: ya esta dentro de una fila
+         * false aun no esta
+         */
+        respuesta=remota.getRespuesta();
 
-            int respuesta=resquestaQR.readInt();
+        Message msg=new Message();
 
-                if(respuesta==1){
+                if(!respuesta){
 
                     Message msg2=new Message();
 
@@ -57,62 +66,19 @@ public class RecibeRespuestaRemota extends  Thread{
 
                     Ids.yaestaEncola=true;
 
-                    Ids.id_cola=resquestaQR.readUTF();
+                    CuentaAtrasTurno cuentaAtrasTurno = new CuentaAtrasTurno(MicolaFragment.mViewModel);
 
-                    Ids.id_usuario=resquestaQR.readUTF();
+                    ModifciarUIMicola modifciarUIMicola = new ModifciarUIMicola(cuentaAtrasTurno, informacionTiendaActivity);
 
-                    String miturno=resquestaQR.readUTF();
+                    modifciarUIMicola.modificar();
 
-                    MicolaFragment.mViewModel.setMiTurno(miturno);
-
-                    while(qrSocket.isConnected()){// si esta conectado va estar escuchando al servidor
-
-                        CuentaAtrasTurno  cuentaAtras =new CuentaAtrasTurno(MicolaFragment.mViewModel);
-
-                        cuentaAtras.start();
-
-                        String datos=resquestaQR.readUTF();
-
-                        colaJson=gosn.fromJson(datos, InformacionColaJson.class);
-
-                        // para actualizar el turno y tiempo en la pantalla
-                        MicolaFragment.mViewModel.modificarTurno(colaJson.turnoActual);
-
-                        MicolaFragment.mViewModel.modificarTiempo(colaJson.timepo);
-
-                        MicolaFragment.mViewModel.setTurnosQueda(colaJson.turnoQueda);
-                        // cuando recibe respueta del servidor
-                        // vulve iniciar el temporizador
-                        // porque el tiempo va calcular por servidor
-                       cuentaAtras.sigueCuentando=false;
-
-                        int mitrunoInt=Integer.parseInt(miturno);
-
-                        int turnoAcutal=Integer.parseInt(colaJson.turnoActual);
-
-                        if(mitrunoInt<=turnoAcutal){
-
-
-                            MicolaFragment.mViewModel.modificarTiempo(0);
-                           MicolaFragment.mViewModel.setTurnosQueda("Toca su turno");
-                           MicolaFragment.mViewModel.setPuedeAnadirPorducto(false);
-
-                           TocaSuTurno.tocaturno(informacionTiendaActivity);
-                           break;
-                       }
-
-                    }
-
-                }else if(respuesta==2){
+                }else{
                     msg.what=2;
-                    qrSocket.close();
+
                 }
 
             informacionTiendaActivity.mainHandler.sendMessage(msg);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 }

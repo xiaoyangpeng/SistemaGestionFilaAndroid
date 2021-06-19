@@ -27,7 +27,7 @@ public class QRActivity extends AppCompatActivity {
 
 	private QRActivity qrActivity;
 
-	private QrEnviar qrEnviar;
+	private RecibeRespuestaQR qrrespeusta;
 
 	private ProgressBar progressBarQR;
 
@@ -54,9 +54,9 @@ public class QRActivity extends AppCompatActivity {
 
 		activarDesactivarView(true);
 
-		qrEnviar=new QrEnviar(qrActivity,codigoQR);
+		qrrespeusta=new RecibeRespuestaQR(codigoQR,this);
 
-		qrEnviar.start();
+		qrrespeusta.start();
 
 		// permite cambiar UI de qr Activity en subHilos
 		mainHandler = new Handler(Looper.getMainLooper()) {

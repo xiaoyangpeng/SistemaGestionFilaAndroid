@@ -77,15 +77,9 @@ class MiAdaptadorTienda(var tiendaArray: ArrayList<Tienda>) : RecyclerView.Adapt
 
                              myitemView?.context?.startActivity(i)
 
-
                          }
 
-
-
                     )
-
-
-
 
 
         }

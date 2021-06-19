@@ -62,12 +62,22 @@ class ModificaActivity : AppCompatActivity() {
 
         nombre?.setText(user.nombre)
 
-        sexo?.setText(user.sexo)
+
+        if(user.sexo.equals("N")){
+
+            sexo?.setText("No definido")
+
+        }else if(user.sexo.equals("H")){
+            sexo?.setText("Hombre")
+        }else{
+
+            sexo?.setText("Mujer")
+        }
+
 
         textTelefono?.setText(user.telefono.toString())
 
         email?.setText(leer.email)
-
 
     }
 

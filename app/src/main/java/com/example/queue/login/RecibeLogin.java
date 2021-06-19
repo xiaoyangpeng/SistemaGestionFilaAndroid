@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Message;
 
 import com.example.queue.guardarDatoSharedPre.guradarDatoAcceso.LeerDatodeAcceso;
+import com.example.queue.login.api.RespuestaLogin;
 import com.example.queue.valorFijo.DatoAcceso;
 
 public class RecibeLogin {
@@ -18,14 +19,14 @@ public class RecibeLogin {
         this.contrasena=contrasena;
     }
 
-    public void actuar(String respuesta) {
+    public void actuar(RespuestaLogin respuesta) {
 
             // -1 no puede accerder
             // 1 exito
             // 2 no esta activado
             // 3 ya esta en liena
             // 4 falla conexion
-           String estadoUsuario=respuesta;
+           String estadoUsuario=respuesta.respuesta;
 
              Message msg = new Message();
 
@@ -34,6 +35,24 @@ public class RecibeLogin {
              }
 
            switch (estadoUsuario){
+
+               case "1":{
+
+                   // leer token
+                   Bundle bundle = new Bundle();
+                   bundle.putString(DatoAcceso.EMALI, email);
+                   bundle.putString(DatoAcceso.CONTRSENA, contrasena);
+                   bundle.putString(DatoAcceso.TOKEN, respuesta.token);
+                   msg.setData(bundle);
+                   msg.what = 1;
+
+                   // en calse leerdatos de acceso esta esperando que su contrasena y usuario del sharedpreferend
+                   // son correcto
+                   LeerDatodeAcceso.puedeacceder = true;
+
+                   break;
+               }
+
 
                case "-1" :
 
@@ -46,6 +65,11 @@ public class RecibeLogin {
 
                    break;
                case "2":
+
+
+                   Bundle bundle2 = new Bundle();
+                   bundle2.putString("Token", respuesta.token);
+                   msg.setData(bundle2);
                    msg.what = 2;
 
                 break;
@@ -60,22 +84,7 @@ public class RecibeLogin {
                    msg.what = 5;
                    break;
 
-                   default:
 
-
-                       // leer token
-                       Bundle bundle = new Bundle();
-                       bundle.putString(DatoAcceso.EMALI, email);
-                       bundle.putString(DatoAcceso.CONTRSENA, contrasena);
-                       bundle.putString(DatoAcceso.TOKEN, respuesta);
-                       msg.setData(bundle);
-                       msg.what = 1;
-
-                       // en calse leerdatos de acceso esta esperando que su contrasena y usuario del sharedpreferend
-                       // son correcto
-                       LeerDatodeAcceso.puedeacceder = true;
-
-                       break;
 
            }
             loginActivity.mainHandler.sendMessage(msg);

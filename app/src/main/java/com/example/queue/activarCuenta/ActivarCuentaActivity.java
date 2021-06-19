@@ -30,7 +30,6 @@ public class ActivarCuentaActivity extends AppCompatActivity {
 
     public  Handler mainHandler;
 
-
     private Button vuelveMandarEamil;
 
     private  TextView textTiempoActivaCuenta;
@@ -40,6 +39,9 @@ public class ActivarCuentaActivity extends AppCompatActivity {
     private ConstraintLayout viewAcitvarCuenta;
 
     private  TextView textEmailActivacion;
+
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,8 @@ public class ActivarCuentaActivity extends AppCompatActivity {
 
         email=i.getStringExtra(getResources().getString(R.string.email));
 
+
+        token=i.getStringExtra("Token");
         textCodigoActivacion=(EditText) findViewById(R.id.editextCodigoActivacion);
 
         botonActivar=(Button) findViewById(R.id.botonActivarCuenta);
@@ -75,8 +79,8 @@ public class ActivarCuentaActivity extends AppCompatActivity {
 
                     if (comprobarVacio()) {
 
-                        EnviarActivaCuenta enviarActivaCuenta = new EnviarActivaCuenta(activarCuentaActivity);
-                        enviarActivaCuenta.start();
+                        RecibeActivaCuenta recibeActivaCuenta=new RecibeActivaCuenta(activarCuentaActivity,token);
+                        recibeActivaCuenta.start();
 
                         //desactiva el view entro para que el usuario no puede tocar
                         activarODesactivarView(false);
@@ -118,9 +122,9 @@ public class ActivarCuentaActivity extends AppCompatActivity {
                     vuelveMandarEamil.setAlpha((float) 0.3);
                     cuentaAtras.setTimepo(Tiempo.TIEMPOPARAMANDAREMAIL);
 
-                    VuelveMandarCorreo vuelveMandarCorreo = new VuelveMandarCorreo(email);
+                    VuelveMandarCorreo vuelveMandarCorreo = new VuelveMandarCorreo(token);
 
-                    vuelveMandarCorreo.start();
+                    vuelveMandarCorreo.run();
 
                     dialogoMandarOtraVez();
             }

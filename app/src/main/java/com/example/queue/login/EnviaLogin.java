@@ -1,6 +1,7 @@
 package com.example.queue.login;
 
 import com.example.queue.login.api.ApiLogin;
+import com.example.queue.login.api.RespuestaLogin;
 
 import java.net.Socket;
 
@@ -32,10 +33,10 @@ public class EnviaLogin   {
             e.printStackTrace();
         }
 
-        String repuesta=login.respuesta();
+        RespuestaLogin respuestaLogin=login.respuesta();
 
         RecibeLogin recibeLogin=new RecibeLogin(editUsuario,editContrasena,loginActivity);
-        recibeLogin.actuar(repuesta);
+        recibeLogin.actuar(respuestaLogin);
 
 
     }

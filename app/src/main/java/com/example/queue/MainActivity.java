@@ -25,6 +25,8 @@ import com.example.queue.login.LoginActivity;
 import com.example.queue.modificardato.ModificaActivity;
 import com.example.queue.permiso.DialogoPermisoCamara;
 import com.example.queue.probarConexionInternet.ProbarConexionInternet;
+import com.example.queue.recibeHistoriaFila.ui.HistoriaFilaActivity;
+import com.example.queue.valorFijo.HiloModificaUiMiCola;
 import com.example.queue.zxing.activity.CaptureActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // un bug de salir cuenta siguie arranca el hilo
+        HiloModificaUiMiCola.arrancar=true;
 
         mainActivity=this;
 
@@ -141,8 +146,9 @@ public class MainActivity extends AppCompatActivity {
 
             Limpiarshare limpiarshare=new Limpiarshare(this);
 
-
             startActivity(new Intent(mainActivity, LoginActivity.class));
+
+            HiloModificaUiMiCola.arrancar=false;
 
             this.finish();
 
@@ -152,6 +158,12 @@ public class MainActivity extends AppCompatActivity {
         public void modificarCuenta(View view){
 
             startActivity(new Intent(mainActivity, ModificaActivity.class));
+
+        }
+
+        public void historiaFila(View view){
+
+                startActivity(new Intent(mainActivity, HistoriaFilaActivity.class));
 
         }
 

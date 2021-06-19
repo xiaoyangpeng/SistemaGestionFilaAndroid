@@ -3,16 +3,8 @@ package com.example.queue.listaproducto.acciones;
 import android.app.Activity;
 
 import com.example.queue.comunicacionQR.ProductoMandaUsuario;
-import com.example.queue.comunicacionQR.QrEnviar;
-import com.example.queue.enCasoUsuarioYaesEnCola.EnviarSiEstaEncola;
 import com.example.queue.listaproducto.acciones.apilistaproducto.ApiMandaListaProducto;
 import com.example.queue.valorFijo.Ids;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
 
 public class GuardarCambioProducto  {
 
@@ -38,8 +30,6 @@ public class GuardarCambioProducto  {
         productoMandaUsuario.setId_producto(id_producto);
 
         productoMandaUsuario.setCantidad(cantidad);
-
-        productoMandaUsuario.setId_usuario(Integer.parseInt(Ids.id_usuario));
 
         manda.crear(productoMandaUsuario);
 

@@ -10,6 +10,7 @@ import com.example.queue.login.LoginActivity;
 import com.example.queue.login.RecibeLogin;
 import com.example.queue.login.api.ApiLogin;
 import com.example.queue.login.api.ApiLoginToken;
+import com.example.queue.login.api.RespuestaLogin;
 import com.example.queue.valorFijo.DatoAcceso;
 
 public class LeerDatodeAcceso   {
@@ -54,7 +55,7 @@ public class LeerDatodeAcceso   {
                  e.printStackTrace();
              }
 
-             String repuesta=login.respuesta();
+             RespuestaLogin repuesta=login.respuesta();
 
              RecibeLogin recibeLogin=new RecibeLogin(email,contrasena,activity);
              recibeLogin.actuar(repuesta);

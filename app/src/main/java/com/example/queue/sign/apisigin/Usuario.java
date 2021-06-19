@@ -1,4 +1,4 @@
-package com.example.queue.sign;
+package com.example.queue.sign.apisigin;
 
 import java.io.Serializable;
 

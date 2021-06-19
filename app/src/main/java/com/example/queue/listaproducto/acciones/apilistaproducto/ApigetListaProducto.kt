@@ -13,7 +13,6 @@ interface ApigetListaProducto {
     @GET("proyectoFinalEntrada/mandaListaporqr")
 
     fun getJSonData( @Query("idcola") idcola: String?,
-                     @Query("idusuario") idusuario: String?,
                     @Query("nombreproducto") nombreProducto:String?,
                     @Header("Authorization") authorization:String?): Call<ProductosAux>?
 

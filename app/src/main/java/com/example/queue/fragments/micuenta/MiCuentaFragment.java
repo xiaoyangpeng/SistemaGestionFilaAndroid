@@ -63,9 +63,28 @@ public class MiCuentaFragment extends Fragment {
 
             mViewModel.setNombre(user.getNombre());
 
-            mViewModel.setSexo(user.getSexo());
+            if(user.getSexo().equals("N")){
 
-            mViewModel.setTelefono(user.getTelefono().toString());
+                mViewModel.setSexo("No definido");
+
+            }else if(user.getSexo().equals("H")){
+
+
+                mViewModel.setSexo("Hombre");
+            }else{
+                mViewModel.setSexo("Mujer");
+
+            }
+
+
+            if(user.getTelefono()!=null){
+
+                mViewModel.setTelefono(user.getTelefono().toString());
+
+            }else{
+
+                mViewModel.setTelefono("Aún no tienes tel");
+            }
 
           binding.setData(mViewModel);
 

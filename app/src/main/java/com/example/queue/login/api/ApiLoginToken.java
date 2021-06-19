@@ -1,6 +1,7 @@
 package com.example.queue.login.api;
 
 import android.os.Message;
+import android.util.Log;
 
 import com.example.queue.guardarDatoSharedPre.guradarDatoAcceso.LeerToken;
 import com.example.queue.login.LoginActivity;
@@ -38,6 +39,8 @@ public class ApiLoginToken extends  Thread {
                 .build();
 
         // 创建 网络请求接口 的实例
+
+
         ApiPostLoign apiGet = retrofit.create(ApiPostLoign.class);
 
         String token=  LeerToken.tokenUsuario(loginActivity);
@@ -67,11 +70,11 @@ public class ApiLoginToken extends  Thread {
 
     }
 
-    public String respuesta () {
+    public RespuestaLogin respuesta () {
 
-        String resul=null;
+        RespuestaLogin resul=null;
         try {
-          resul = data.body().respuesta;
+          resul = data.body();
 
         }catch (Exception e){
 

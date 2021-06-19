@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.DetailPrivacyActivity">
+
+    <com.joanzapata.pdfview.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/pdfText"
+        android:layout_width="89dp"
+        android:layout_height="49dp"
+        android:padding="5dp"
+        android:text="1/10"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.example.queue.login.api;
 
 import android.os.Message;
+import android.util.Log;
 
 import com.example.queue.login.LoginActivity;
 import com.example.queue.valorFijo.ConexionUrl;
@@ -37,6 +38,13 @@ public class ApiLogin extends  Thread {
                 .build();
 
         // 创建 网络请求接口 的实例
+
+        System.out.println("fffffffffff "+ConexionUrl.Companion.getBASE_URL());
+
+
+        Log.d("ffffffffff",ConexionUrl.Companion.getBASE_URL());
+
+
         ApiPostLoign apiGet = retrofit.create(ApiPostLoign.class);
 
         Map<String, String> hashMap = new HashMap<String, String>();
@@ -68,9 +76,9 @@ public class ApiLogin extends  Thread {
 
     }
 
-        public String respuesta () {
+        public RespuestaLogin respuesta () {
 
-            return data.body().respuesta;
+            return data.body();
         }
 
 }

@@ -51,7 +51,7 @@ public class GuardarDatoCuenta {
         String telefono;
         if (telefonoaux==null){
 
-            telefono="";
+            telefono="0";
         }else{
             telefono=telefonoaux.toString();
         }

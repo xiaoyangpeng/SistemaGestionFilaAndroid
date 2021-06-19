@@ -16,10 +16,10 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="411dp"
+            android:layout_height="249dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/buttonHistoria"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,7 +32,7 @@
                 <TextView
                     android:id="@+id/textView20"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="80dp"
                     android:gravity="center"
                     android:text="Nombre"
                     android:textSize="20dp"
@@ -50,7 +50,7 @@
                 <TextView
                     android:id="@+id/textView22"
                     android:layout_width="match_parent"
-                    android:layout_height="108dp"
+                    android:layout_height="104dp"
                     android:gravity="center"
                     android:text="Telefono"
                     android:textSize="20dp"
@@ -65,7 +65,7 @@
                 <TextView
                     android:id="@+id/MiCuentaNombre"
                     android:layout_width="match_parent"
-                    android:layout_height="72dp"
+                    android:layout_height="80dp"
                     android:gravity="center"
                     android:text="@{data.getNombre()}" />
 
@@ -90,30 +90,37 @@
             android:layout_width="131dp"
             android:layout_height="49dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="184dp"
+            android:layout_marginBottom="104dp"
             android:onClick="modificarCuenta"
             android:text="Modificar"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cuentasalir"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.617"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/cuentasalir"
             android:layout_width="128dp"
             android:layout_height="49dp"
-            android:layout_marginTop="184dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="104dp"
             android:onClick="salircuenta"
             android:text="Salir"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/buttonHistoria"
+            android:layout_width="303dp"
+            android:layout_height="48dp"
+            android:onClick="historiaFila"
+            android:text="Historia"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

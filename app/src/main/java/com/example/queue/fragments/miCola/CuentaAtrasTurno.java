@@ -5,7 +5,7 @@ import android.util.Log;
 public class CuentaAtrasTurno extends Thread {
 
 
-    public  boolean sigueCuentando=true;
+    public volatile boolean sigueCuentando=true;
 
     private MicolaViewModel micolaViewModel;
 
@@ -16,8 +16,6 @@ public class CuentaAtrasTurno extends Thread {
 
     @Override
     public void run() {
-
-
 
         while(sigueCuentando){
 

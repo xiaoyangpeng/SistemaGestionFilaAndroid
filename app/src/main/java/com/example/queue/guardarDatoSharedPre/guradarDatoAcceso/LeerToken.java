@@ -11,7 +11,7 @@ public class LeerToken {
 
     public static String tokenUsuario(Context activity){
 
-        SharedPreferences preferencias = activity.getApplicationContext().getSharedPreferences(com.example.queue.valorFijo.DatoAcceso.NOMBRESHARE, Context.MODE_PRIVATE );
+        SharedPreferences preferencias = activity.getSharedPreferences(com.example.queue.valorFijo.DatoAcceso.NOMBRESHARE, Context.MODE_PRIVATE );
 
         return preferencias.getString(DatoAcceso.TOKEN,null);
     }

@@ -75,7 +75,11 @@ public class HandlerCominucaConPrinciapal  {
                break;
            case 2:
 
-                dialogoActivarOcancelar();
+               Bundle bundle2 = msg.getData();
+
+               String token=bundle2.getString("Token");
+
+                dialogoActivarOcancelar(token);
 
                break;
 
@@ -108,9 +112,10 @@ public class HandlerCominucaConPrinciapal  {
 
     }
 
-    public void dialogoActivarOcancelar(){
+    public void dialogoActivarOcancelar(String token){
 
 
+       System.out.println(token);
 
        AlertDialog.Builder dialogo=new AlertDialog.Builder(loginActivity);
 
@@ -119,12 +124,14 @@ public class HandlerCominucaConPrinciapal  {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                VuelveMandarCorreo vuelveMandarCorreo=new VuelveMandarCorreo(loginActivity.getUsuario().getText().toString());
-                vuelveMandarCorreo.start();// pedir al servidor que le manda un correo con codigo de activacion
+                VuelveMandarCorreo vuelveMandarCorreo=new VuelveMandarCorreo(token);
+                vuelveMandarCorreo.run();// pedir al servidor que le manda un correo con codigo de activacion
 
                 Intent i=new Intent(loginActivity, ActivarCuentaActivity.class);
 
                 i.putExtra(loginActivity.getResources().getString(R.string.email), loginActivity.getUsuario().getText().toString());
+
+                i.putExtra("Token",token);
 
                 loginActivity.startActivity(i);
 

@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.queue.R;
+import com.example.queue.sign.apisigin.Usuario;
 
 
 public class ComprobarPreviaDatosSign {
@@ -24,7 +25,7 @@ public class ComprobarPreviaDatosSign {
 
     private TextView textsexo;
 
-    private  Usuario usuario;
+    private Usuario usuario;
 
     private String sexo;
 

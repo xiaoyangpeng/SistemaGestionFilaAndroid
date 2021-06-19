@@ -51,8 +51,8 @@ public class ApiTiendaRemota extends Thread {
 
         try {
             data = dataCall.execute();
-
             tiendaremota=data.body();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

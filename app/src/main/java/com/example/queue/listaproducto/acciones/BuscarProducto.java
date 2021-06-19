@@ -44,7 +44,7 @@ public class BuscarProducto implements SearchView.OnQueryTextListener {
 
         petecionProducto=new ApillaListaProducto(listaproducto);
 
-        petecionProducto.crear(String.valueOf(Ids.id_cola),String.valueOf(Ids.id_usuario),query);
+        petecionProducto.crear(String.valueOf(Ids.id_cola),query);
 
         petecionProducto.start();
 
